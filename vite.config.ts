@@ -14,9 +14,10 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
+      '/vortex-api': {
         target: 'https://vortex.worldofwarships.eu',
         changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/vortex-api/, '/api'),
       },
     },
   },

@@ -2,8 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/api/((?!proxy$).*)",
-      "destination": "/api/proxy?path=$1"
+      "source": "/vortex-api/(.*)",
+      "destination": "/api/vortex?path=$1"
     }
   ]
 }

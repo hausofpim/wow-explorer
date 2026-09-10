@@ -6,7 +6,7 @@ const UPSTREAM = 'https://vortex.worldofwarships.eu/api'
 
 export default async function handler(request: Request): Promise<Response> {
   const url = new URL(request.url)
-  const path = url.searchParams.get('path') ?? ''
+  const path = (url.searchParams.get('path') ?? '').replace(/^\/+/, '')
 
   const upstreamQuery = new URLSearchParams(url.searchParams)
   upstreamQuery.delete('path')
@@ -20,11 +20,14 @@ export default async function handler(request: Request): Promise<Response> {
       },
     })
 
-    return new Response(upstream.body, {
+    const body = await upstream.text()
+
+    return new Response(body, {
       status: upstream.status,
       headers: {
         'Content-Type': upstream.headers.get('Content-Type') || 'application/json',
         'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+        'X-Proxy-Upstream': upstreamUrl,
       },
     })
   } catch {

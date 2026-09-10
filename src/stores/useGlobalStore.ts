@@ -36,7 +36,7 @@ export const useGlobalStore = defineStore('global', () => {
           ServerResponse<{
             [key: string]: RawShip
           }>
-        >('/api/encyclopedia/en/vehicles/')
+        >('/vortex-api/encyclopedia/en/vehicles/')
         ships.value = Object.values(response.data).filter(
           (ship) => !ship.tags.some((tag) => EXCLUDED_TAGS.has(tag)),
         )
@@ -46,7 +46,9 @@ export const useGlobalStore = defineStore('global', () => {
     {
       isReady: false,
       fetch: async function fetch() {
-        const response = await fetchApi<ServerResponse<string>>('/api/encyclopedia/en/media_path/')
+        const response = await fetchApi<ServerResponse<string>>(
+          '/vortex-api/encyclopedia/en/media_path/',
+        )
         mediaPath.value = response.data
         this.isReady = true
       },
@@ -54,7 +56,9 @@ export const useGlobalStore = defineStore('global', () => {
     {
       isReady: false,
       fetch: async function fetch() {
-        const response = await fetchApi<ServerResponse<Nation[]>>('/api/encyclopedia/en/nations/')
+        const response = await fetchApi<ServerResponse<Nation[]>>(
+          '/vortex-api/encyclopedia/en/nations/',
+        )
         nations.value = new Map(
           Object.entries(response.data).map(([, value]) => [value.name, value as Nation]),
         )
@@ -68,7 +72,7 @@ export const useGlobalStore = defineStore('global', () => {
           ServerResponse<{
             [key: string]: VehicleType
           }>
-        >('/api/encyclopedia/en/vehicle_types_common/')
+        >('/vortex-api/encyclopedia/en/vehicle_types_common/')
         vehicleTypes.value = new Map(Object.entries(response.data))
         this.isReady = true
       },
