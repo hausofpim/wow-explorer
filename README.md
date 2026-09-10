@@ -1,6 +1,6 @@
 # World of Warships ships explorer
 
-> **Demo:**
+> **Demo:** https://wow-explorer.vercel.app
 
 Single page app for browsing World of Warships ships: hero carousel, filterable ship grid, and nations overview with data comes from the public Vortex API.
 
@@ -70,7 +70,9 @@ npm install
 npm run dev
 ```
 
-The development server proxies requests to `/api/*` to `https://vortex.worldofwarships.eu` due to CORS restrictions on the backend server (see `vite.config.ts`).
+The development server proxies /vortex-api/* to https://vortex.worldofwarships.eu/api/* (see `vite.config.ts`).
+
+In production on Vercel the same paths go through the Edge Function in api/vortex.ts (see `vercel.json`).
 
 ### Production build
 
