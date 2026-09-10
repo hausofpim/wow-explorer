@@ -1,0 +1,44 @@
+:root {
+  --color-white: #fbfbfb;
+  --color-black: #000000;
+  --color-primary: #ff9900;
+  --color-secondary: #d1d5db;
+  --color-gray: #9ca3af;
+  --color-bg: #1d2532;
+  --color-border-white: rgba(255, 255, 255, 0.3);
+
+  /* 4px */
+  --space-xs: 0.25rem;
+  /* 8px */
+  --space-sm: 0.5rem;
+  /* 12px */
+  --space-md: 0.75rem;
+  /* 16px */
+  --space-lg: 1rem;
+  /* 24px */
+  --space-xl: 1.5rem;
+  /* 32px */
+  --space-2xl: 2rem;
+
+  /* ~12-13px */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
+  /* ~14-15px */
+  --font-size-sm: clamp(0.875rem, 0.82rem + 0.25vw, 0.9375rem);
+  /* ~16-17px */
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+  /* ~16-18px */
+  --font-size-md: clamp(1rem, 0.92rem + 0.4vw, 1.125rem);
+  /* ~18-22px */
+  --font-size-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  /* ~22-28px */
+  --font-size-xl: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
+  /* ~24-36px */
+  --font-size-2xl: clamp(1.5rem, 1.15rem + 1.6vw, 2.25rem);
+
+  --radius-sm: 0.5rem;
+  --radius-full: 999px;
+
+  --navbar-height: 70px;
+
+  --primary-box-shadow: 0 0 8px rgba(255, 153, 0, 0.4);
+}
